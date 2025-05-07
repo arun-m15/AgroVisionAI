@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AgroVisionAI/static/css/main.3598897c.css",
+    "main.js": "/AgroVisionAI/static/js/main.fbae7623.js",
+    "static/js/453.1784b4cb.chunk.js": "/AgroVisionAI/static/js/453.1784b4cb.chunk.js",
+    "index.html": "/AgroVisionAI/index.html",
+    "main.3598897c.css.map": "/AgroVisionAI/static/css/main.3598897c.css.map",
+    "main.fbae7623.js.map": "/AgroVisionAI/static/js/main.fbae7623.js.map",
+    "453.1784b4cb.chunk.js.map": "/AgroVisionAI/static/js/453.1784b4cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3598897c.css",
+    "static/js/main.fbae7623.js"
+  ]
+}
