@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Add this
 import ProfilePage from './ProfilePage';
 import './LeafAnalysis.css';
 
@@ -7,8 +8,9 @@ function LeafAnalysis() {
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
+  const navigate = useNavigate(); // ✅ Use this for navigation
 
-  // Mock analysis data - replace with actual API call
+  // Mock data
   const mockAnalysis = {
     disease: "Early Blight",
     confidence: "92%",
@@ -37,7 +39,7 @@ function LeafAnalysis() {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result);
-        analyzeImage(); // Auto-trigger analysis when image is selected
+        analyzeImage();
       };
       reader.readAsDataURL(file);
     }
@@ -45,7 +47,6 @@ function LeafAnalysis() {
 
   const analyzeImage = () => {
     setIsLoading(true);
-    // Simulate API call delay
     setTimeout(() => {
       setAnalysis(mockAnalysis);
       setIsLoading(false);
@@ -87,17 +88,21 @@ function LeafAnalysis() {
   return (
     <div className="leaf-analysis-container">
       <ProfilePage />
-      
+
       <main className="analysis-main">
         <h1 className="page-title">Leaf Disease Analysis</h1>
-        
+
+        {/* ✅ Back to Home Button */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
+          <button className="back-home-button" onClick={() => navigate('/homepage')}>
+            🏠 Back to Home
+          </button>
+        </div>
+
         <div className="analysis-content">
-          {/* Left Side - Image Upload */}
+          {/* Image Upload Section */}
           <div className="upload-section">
-            <div 
-              className="upload-area"
-              onClick={triggerFileInput}
-            >
+            <div className="upload-area" onClick={triggerFileInput}>
               {preview ? (
                 <img src={preview} alt="Uploaded leaf" className="leaf-preview" />
               ) : (
@@ -115,7 +120,7 @@ function LeafAnalysis() {
                 style={{ display: 'none' }}
               />
             </div>
-            
+
             <div className="scan-options">
               <button className="scan-button" onClick={triggerFileInput}>
                 Upload Image
@@ -124,7 +129,7 @@ function LeafAnalysis() {
                 Open Camera
               </button>
             </div>
-            
+
             {isLoading && (
               <div className="loading-indicator">
                 <div className="spinner"></div>
@@ -132,8 +137,8 @@ function LeafAnalysis() {
               </div>
             )}
           </div>
-          
-          {/* Right Side - Analysis Results */}
+
+          {/* Analysis Results */}
           <div className="results-section">
             {analysis ? (
               <>
@@ -145,7 +150,7 @@ function LeafAnalysis() {
                   </div>
                   <p className="disease-description">{analysis.description}</p>
                 </div>
-                
+
                 <div className="recommendation-card">
                   <h3>Immediate Actions</h3>
                   <ul className="recommendation-list">
@@ -154,7 +159,7 @@ function LeafAnalysis() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="fertilizer-card">
                   <h3>Optimized Fertilizers</h3>
                   <div className="fertilizer-details">
@@ -166,7 +171,7 @@ function LeafAnalysis() {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="pesticide-card">
                   <h3>Recommended Pesticides</h3>
                   <ul className="pesticide-list">
@@ -178,13 +183,12 @@ function LeafAnalysis() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="harvest-card">
                   <h3>Harvest Recommendation</h3>
                   <p className="harvest-text">{analysis.harvestRecommendation}</p>
                 </div>
 
-                {/* Download Report Button */}
                 <button className="download-report-button" onClick={downloadReport}>
                   Download Report
                 </button>

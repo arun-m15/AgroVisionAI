@@ -6,6 +6,20 @@
   color: #333;
   background-color: #f8f9fa;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+.back-home-button {
+  background-color: #264653;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.back-home-button:hover {
+  background-color: #1d3557;
 }
 
 .analysis-main {
@@ -23,7 +37,6 @@
   position: relative;
   padding-bottom: 10px;
 }
-
 .page-title::after {
   content: '';
   position: absolute;
@@ -36,16 +49,18 @@
   border-radius: 3px;
 }
 
+/* Updated Layout */
 .analysis-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
-  flex-wrap: wrap;
+  height: 85vh;
 }
 
 /* Upload Section */
 .upload-section {
-  flex: 1;
-  min-width: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .upload-area {
@@ -63,42 +78,35 @@
   align-items: center;
   margin-bottom: 20px;
 }
-
 .upload-area:hover {
   border-color: #5cb85c;
   box-shadow: 0 8px 25px rgba(92, 184, 92, 0.1);
 }
-
 .leaf-preview {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   border-radius: 10px;
 }
-
 .upload-instructions {
   text-align: center;
   color: #666;
 }
-
 .upload-icon {
   font-size: 3rem;
   margin-bottom: 15px;
   color: #5cb85c;
 }
-
 .subtext {
   font-size: 0.9rem;
   color: #999;
   margin-top: 5px;
 }
-
 .scan-options {
   display: flex;
   gap: 15px;
   margin-top: 15px;
 }
-
 .scan-button {
   flex: 1;
   padding: 12px;
@@ -111,12 +119,10 @@
   transition: all 0.3s ease;
   box-shadow: 0 3px 10px rgba(92, 184, 92, 0.3);
 }
-
 .scan-button:hover {
   background-color: #4cae4c;
   transform: translateY(-2px);
 }
-
 .scan-button:active {
   transform: translateY(0);
 }
@@ -126,7 +132,6 @@
   margin-top: 20px;
   text-align: center;
 }
-
 .spinner {
   border: 4px solid rgba(92, 184, 92, 0.2);
   border-radius: 50%;
@@ -136,18 +141,29 @@
   animation: spin 1s linear infinite;
   margin: 0 auto 10px;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* Results Section */
+/* Results Section with Scroll */
 .results-section {
-  flex: 1;
-  min-width: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+  height: 100%;
+}
+.results-section::-webkit-scrollbar {
+  width: 6px;
+}
+.results-section::-webkit-scrollbar-thumb {
+  background-color: rgba(44, 122, 62, 0.3);
+  border-radius: 3px;
+}
+.results-section::-webkit-scrollbar-track {
+  background: transparent;
 }
 
+/* Empty States */
 .empty-state {
   background-color: white;
   border-radius: 15px;
@@ -156,7 +172,6 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   color: #666;
 }
-
 .leaf-icon, .microscope-icon {
   font-size: 3rem;
   margin-bottom: 15px;
@@ -175,26 +190,11 @@
   margin-bottom: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
-
-.disease-card {
-  border-top: 5px solid #5cb85c;
-}
-
-.recommendation-card {
-  border-top: 5px solid #f0ad4e;
-}
-
-.fertilizer-card {
-  border-top: 5px solid #5bc0de;
-}
-
-.pesticide-card {
-  border-top: 5px solid #d9534f;
-}
-
-.harvest-card {
-  border-top: 5px solid #337ab7;
-}
+.disease-card { border-top: 5px solid #5cb85c; }
+.recommendation-card { border-top: 5px solid #f0ad4e; }
+.fertilizer-card { border-top: 5px solid #5bc0de; }
+.pesticide-card { border-top: 5px solid #d9534f; }
+.harvest-card { border-top: 5px solid #337ab7; }
 
 .disease-header {
   display: flex;
@@ -202,13 +202,11 @@
   align-items: center;
   margin-bottom: 15px;
 }
-
 .disease-name {
   font-size: 1.5rem;
   font-weight: 600;
   color: #2c7a3e;
 }
-
 .confidence-badge {
   background-color: #e8f5e9;
   color: #2c7a3e;
@@ -217,7 +215,6 @@
   font-size: 0.9rem;
   font-weight: 600;
 }
-
 .disease-description {
   color: #666;
   line-height: 1.6;
@@ -228,17 +225,14 @@ h2, h3 {
   margin-top: 0;
   margin-bottom: 15px;
 }
-
 h2 {
   font-size: 1.5rem;
 }
-
 h3 {
   font-size: 1.2rem;
   position: relative;
   padding-bottom: 8px;
 }
-
 h3::after {
   content: '';
   position: absolute;
@@ -253,7 +247,6 @@ h3::after {
 .recommendation-list {
   padding-left: 20px;
 }
-
 .recommendation-list li {
   margin-bottom: 8px;
   color: #666;
@@ -265,19 +258,16 @@ h3::after {
   flex-direction: column;
   gap: 15px;
 }
-
 .fertilizer-details > div {
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
   border-bottom: 1px dashed #eee;
 }
-
 .fertilizer-type {
   font-weight: 600;
   color: #31708f;
 }
-
 .fertilizer-schedule {
   color: #666;
   font-size: 0.9rem;
@@ -287,19 +277,16 @@ h3::after {
   list-style: none;
   padding: 0;
 }
-
 .pesticide-list li {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px dashed #eee;
 }
-
 .pesticide-name {
   font-weight: 600;
   color: #a94442;
 }
-
 .pesticide-application {
   color: #666;
   font-size: 0.9rem;
@@ -327,12 +314,10 @@ h3::after {
   margin-top: 20px;
   box-shadow: 0 4px 15px rgba(44, 122, 62, 0.3);
 }
-
 .download-report-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(44, 122, 62, 0.4);
 }
-
 .download-report-button:active {
   transform: translateY(0);
 }
@@ -340,28 +325,30 @@ h3::after {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .analysis-content {
+    display: flex;
     flex-direction: column;
+    height: auto;
   }
-  
+
   .upload-area {
     height: 250px;
   }
-  
+
   .scan-options {
     flex-direction: column;
   }
-  
+
   .disease-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  
+
   .pesticide-list li {
     flex-direction: column;
     gap: 5px;
   }
-  
+
   .pesticide-application {
     text-align: left;
     max-width: 100%;
