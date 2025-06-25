@@ -26,7 +26,10 @@ function ProfilePage() {
       <div className="nav-left">
         <span className="brand-name">AgroVisionAI</span>
       </div>
-      {/* Removed nav-links (Home, Suggestions) and nav-actions (Language, Profile) */}
+      <div className="nav-right">
+        <span className="user-email">{userEmail}</span>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 }
