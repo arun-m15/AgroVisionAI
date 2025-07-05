@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f8;
+  margin: 0;
+  padding: 20px;
+}
+
+.news-container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.news-container h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#news-list {
+  list-style: none;
+  padding: 0;
+}
+
+#news-list li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+#news-list a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1e88e5;
+  transition: 0.3s;
+}
+
+#news-list a:hover {
+  color: #0d47a1;
+}
+.home-button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 28px;
+  text-decoration: none;
+  color: #333;
+  background-color: #e6f2e6;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+}
+
+.home-button:hover {
+  background-color: #d0e7d0;
+}
+
+body.dark-mode .home-button {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+body.dark-mode .home-button:hover {
+  background-color: #444;
+}
+/* Default Light Theme */
+body {
+  background-color: #ffffff;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* News container */
+.news-container {
+  padding: 2rem;
+  margin-top: 60px;
+}
+
+.news-container h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#news-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Sticky Top Buttons */
+.top-buttons {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 12px;
+  z-index: 999;
+}
+
+/* Common button style */
+.icon {
+  font-size: 28px;
+  background-color: #e6f2e6;
+  color: #333;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effects */
+.icon:hover {
+  background-color: #d0e7d0;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .icon {
+  background-color: #2e2e2e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .icon:hover {
+  background-color: #444;
+}
