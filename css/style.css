@@ -161,3 +161,36 @@ body.dark-mode .home-button {
 body.dark-mode .home-button:hover {
   background-color: #444;
 }
+.message .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 80%;
+}
+
+.message.outgoing {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.message.incoming {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.message {
+  display: flex;
+  margin: 10px;
+}
+
+.message.outgoing .message-content {
+  flex-direction: row-reverse;
+}
