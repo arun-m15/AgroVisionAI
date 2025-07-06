@@ -1,0 +1,196 @@
+body {
+  background-color: #ffffff;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+.chat-list {
+  padding: 1rem;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Message bubbles */
+.message {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #d1e7dd;
+  color: #0a3622;
+  border-top-right-radius: 0;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #e2e3e5;
+  color: #000;
+  border-top-left-radius: 0;
+}
+
+.typing-area {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.typing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.typing-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+}
+
+.icon {
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: #333;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.disclaimer-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .header,
+body.dark-mode .typing-area {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .typing-input {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode .icon {
+  color: #f1f1f1;
+}
+
+body.dark-mode .user {
+  background-color: #144c43;
+  color: #c8f0e1;
+}
+
+body.dark-mode .bot {
+  background-color: #333;
+  color: #ddd;
+}
+.home-button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 28px;
+  text-decoration: none;
+  color: #333;
+  background-color: #e6f2e6;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #d0e7d0;
+}
+
+body.dark-mode .home-button {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+body.dark-mode .home-button:hover {
+  background-color: #444;
+}
+.message .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 80%;
+}
+
+.message.outgoing {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.message.incoming {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.message {
+  display: flex;
+  margin: 10px;
+}
+
+.message.outgoing .message-content {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgroGPT Chatbot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400&display=swap" />
+  <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+</head>
+<body>
+  <header class="header">
+    <a href="home.html" class="home-button icon material-symbols-rounded" title="Back to Home">home</a>
+    <h1 class="title">Welcome to AgroGPT</h1>
+    <p class="subtitle">Ask anything about agriculture, soil, pests, irrigation or crops 🌱</p>
+  </header>
+
+  <div class="chat-list" id="chatList"></div>
+
+  <div class="typing-area">
+    <form action="#" class="typing-form" id="chatForm">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Ask about crops, soil, pests..." class="typing-input" id="chatInput" required />
+        <button type="submit" class="icon material-symbols-rounded">send</button>
+      </div>
+      <div class="action-buttons">
+        <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+        <span id="delete-chat-button" class="icon material-symbols-rounded">delete</span>
+      </div>
+    </form>
+    <p class="disclaimer-text">
+      AgroGPT may occasionally produce incorrect information. Always verify with local experts.
+    </p>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

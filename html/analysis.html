@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaf Disease Analyzer | AgroTech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/analysis.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.ico">
+</head>
+<body>
+  <div class="plant-transition" id="plantTransition"></div>
+  
+  <div class="compact-container">
+    <a href="home.html" class="home-btn">
+      <i class="fas fa-home"></i> Home
+    </a>
+
+    <div class="analysis-header">
+      <h1 class="title">
+        <i class="fas fa-leaf"></i> Leaf Disease Analyzer
+      </h1>
+    </div>
+
+    <div class="input-options">
+      <button id="uploadOption" class="option-btn active">
+        <i class="fas fa-upload"></i> Upload
+      </button>
+      <button id="cameraOption" class="option-btn">
+        <i class="fas fa-camera"></i> Camera
+      </button>
+    </div>
+
+    <form id="analysisForm" class="analysis-form">
+      <div id="uploadSection" class="input-section">
+        <div class="file-input-container">
+          <input type="file" id="leafImage" accept="image/*" required class="file-input">
+          <label for="leafImage" class="file-label">
+            <div class="upload-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <span>Choose Leaf Image</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="cameraSection" class="input-section" style="display:none;">
+        <div class="camera-container">
+          <div class="camera-placeholder">
+            <i class="fas fa-camera"></i>
+          </div>
+          <video id="cameraFeed" autoplay playsinline style="display:none;"></video>
+          <canvas id="cameraCanvas" style="display:none;"></canvas>
+          <button type="button" id="captureBtn" class="capture-btn">
+            <i class="fas fa-camera"></i> Capture
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="analyze-btn">
+        <span class="btn-text">Analyze</span>
+        <span class="btn-icon"><i class="fas fa-search"></i></span>
+      </button>
+    </form>
+
+    <div class="output-section">
+      <div id="previewContainer" class="preview-container">
+        <div class="preview-placeholder">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <img id="imagePreview" class="image-preview" style="display:none;">
+      </div>
+      
+      <div id="results" class="results-container">
+        <div class="results-placeholder">
+          <i class="fas fa-microscope"></i>
+          <p>Analysis results will appear here</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="loading" id="loadingIndicator">
+      <div class="loading-content">
+        <div class="loading-animation">
+          <div class="leaf"></div>
+          <div class="leaf"></div>
+          <div class="leaf"></div>
+        </div>
+        <p class="loading-text">Analyzing...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/analysis.js"></script>
+</body>
+</html>

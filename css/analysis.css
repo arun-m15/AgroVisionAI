@@ -1,0 +1,251 @@
+/* Compact Styles */
+:root {
+  --primary: #2c5e1a;
+  --primary-light: #388e3c;
+  --light: #f5f9f5;
+  --dark: #333;
+  --gray: #e0e0e0;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+.compact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.home-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.analysis-header {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.input-options {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.option-btn {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--gray);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.option-btn.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.analysis-form {
+  margin: 1rem 0;
+}
+
+.input-section {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px dashed var(--gray);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.camera-placeholder {
+  padding: 2rem;
+  border: 2px dashed var(--gray);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.capture-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.analyze-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.output-section {
+  margin-top: 1rem;
+}
+
+.preview-container, .results-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preview-placeholder i, .results-placeholder i {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 40px;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.leaf {
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary);
+  border-radius: 50% 0;
+  animation: leafFloat 1.5s infinite ease-in-out;
+}
+
+.leaf:nth-child(1) { animation-delay: 0s; }
+.leaf:nth-child(2) { animation-delay: 0.3s; }
+.leaf:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.result-item {
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.result-label {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.tips-list {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.plant-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245,249,245,0.9);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Auto-scroll styles */
+.results-container {
+  overflow-y: auto;
+  max-height: 300px;
+  scroll-behavior: smooth;
+}
