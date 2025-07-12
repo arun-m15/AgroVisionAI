@@ -194,3 +194,77 @@ body.dark-mode .home-button:hover {
 .message.outgoing .message-content {
   flex-direction: row-reverse;
 }
+/* Responsive layout adjustments */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .typing-form {
+    flex-direction: column;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .typing-input {
+    width: 100%;
+  }
+
+  .action-buttons {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .home-button {
+    font-size: 24px;
+    padding: 6px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .chat-list {
+    padding: 0.5rem;
+  }
+
+  .message {
+    margin: 6px;
+  }
+
+  .message-content {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .typing-input {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
+}

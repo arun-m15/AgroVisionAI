@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const newsList = document.getElementById("news-list");
 
-  fetch("http://localhost:8000/api/news") // ✅ updated from port 5000
+  fetch("https://agrovisiontech-1.onrender.com/") // ✅ updated from port 5000
     .then(response => response.json())
     .then(data => {
       data.forEach(article => {

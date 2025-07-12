@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="./assets/favicon.ico">
   <title>AgroVisionAI</title>
   <style>
     * {
@@ -24,9 +25,10 @@
       background-color: #4CAF50;
       color: white;
       width: 100%;
-      padding: 1rem 1.5rem;
+      padding: 1rem;
       font-size: 1.5rem;
       font-weight: bold;
+      text-align: center;
     }
 
     .container {
@@ -154,15 +156,12 @@
   <nav>AgroVisionAI</nav>
 
   <div class="container">
-    <!-- LEFT SIDE: Rotating Boxes -->
     <div class="left-side">
-      <!-- Weather Box -->
       <div class="box active" id="weatherBox">
         <h2>🌦 Current Weather</h2>
         <div id="weatherContent" class="weather-content">Fetching weather data...</div>
       </div>
 
-      <!-- Box 1 -->
       <div class="box" id="box1">
         <h2>About AgroVisionAI</h2>
         <ul>
@@ -174,7 +173,6 @@
         </ul>
       </div>
 
-      <!-- Box 2 -->
       <div class="box" id="box2">
         <h2>What This Can Do</h2>
         <ul>
@@ -186,7 +184,6 @@
         </ul>
       </div>
 
-      <!-- Box 3 -->
       <div class="box" id="box3">
         <h2>Farmer Benefits</h2>
         <ul>
@@ -198,7 +195,6 @@
         </ul>
       </div>
 
-      <!-- Box 4 -->
       <div class="box" id="box4">
         <h2>Tech Behind the Project</h2>
         <ul>
@@ -209,9 +205,19 @@
           <li>Chatbot: Gemini API</li>
         </ul>
       </div>
+
+      <div class="box" id="box5">
+        <h2>📈 Upcoming / On Progress</h2>
+        <ul>
+          <li>Market price of seeds</li>
+          <li>Cost trends of fertilizers and pesticides</li>
+          <li>Fruit & vegetable rate forecasting</li>
+          <li>Regional supply-demand data</li>
+          <li>Product cost monitoring system</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- RIGHT SIDE: Description + Button -->
     <div class="right-side">
       <div class="project-description">
         <h1>Smart Farming, Smarter Future 🌱</h1>
@@ -224,13 +230,13 @@
   </div>
 
   <script>
-    // Fetch Weather
+    // Weather API logic
     function fetchWeather() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (pos) => {
           const lat = pos.coords.latitude;
           const lon = pos.coords.longitude;
-          const apiKey = 'YOUR_API_KEY'; // Replace with real API key
+          const apiKey = '0f39ba75669e0f240beb542ef6f34686'; // Replace with your actual API key
           const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
           try {
@@ -254,34 +260,25 @@
       }
     }
 
-    // Box Rotation
-    const boxIds = ['weatherBox', 'box1', 'box2', 'box3', 'box4'];
-    let currentIndex = 0;
-    let interval = null;
+    const boxIds = ['weatherBox', 'box1', 'box2', 'box3', 'box4', 'box5'];
+    let i = 0;
 
     function showBox(index) {
-      boxIds.forEach((id, i) => {
-        document.getElementById(id).classList.remove('active');
-        if (i === index) {
-          document.getElementById(id).classList.add('active');
-        }
+      boxIds.forEach((id, j) => {
+        document.getElementById(id).classList.toggle('active', j === index);
       });
+    }
+
+    function rotateBoxes() {
+      showBox(i);
+      const delay = (i === 0) ? 5000 : 2000;
+      i = (i + 1) % boxIds.length;
+      setTimeout(rotateBoxes, delay);
     }
 
     window.onload = () => {
       fetchWeather();
-
-      // Show weather for 5 sec, then rotate other boxes every 2 sec
-      setTimeout(() => {
-        currentIndex = 1;
-        showBox(currentIndex);
-
-        interval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % boxIds.length;
-          if (currentIndex === 0) currentIndex = 1; // skip weather
-          showBox(currentIndex);
-        }, 2000);
-      }, 5000);
+      rotateBoxes();
     };
   </script>
 </body>
