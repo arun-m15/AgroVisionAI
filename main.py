@@ -5,6 +5,7 @@ import requests
 
 app = FastAPI()
 
+# CORS middleware setup (allow any frontend)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,6 +13,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ✅ Add root route to avoid 404 on base URL
+@app.get("/")
+def root():
+    return {"message": "AgroVision News Scraper Backend is Running."}
+
+# ✅ Actual news scraping route
 @app.get("/api/news")
 def get_agriculture_news():
     url = 'https://www.agrifarming.in/category/agriculture-news'
